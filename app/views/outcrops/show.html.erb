@@ -1,0 +1,16 @@
+<h3><%= @outcrop.location %></h3>
+<h5><%= @outcrop.description %></h5>
+
+<div>
+    <li><%= @outcrop.latitude %> degrees Latitude</li>
+    <li><%= @outcrop.longitude %> degrees Longitude</li>
+    <li>Entered by <%= @outcrop_user.username %></li>
+    <% if @outcrop.project.name %>
+        <li>Used on the <%= @outcrop_project.name %> project</li>
+    <% end %>
+    <% if @outcrop_user == current_user %>
+        <%= link_to "Edit Outcrop", edit_outcrop_path(@outcrop) %>
+    <% end %>
+</div>
+
+

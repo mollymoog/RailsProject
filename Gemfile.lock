@@ -83,6 +83,8 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.9.0)
+    faker (2.14.0)
+      i18n (>= 1.6, < 2)
     faraday (1.1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
@@ -244,6 +246,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
+  faker
   jbuilder (~> 2.7)
   listen (~> 3.2)
   omniauth-google-oauth2

@@ -1,0 +1,14 @@
+<h2>Your Outcrops:</h2>
+<% @user_outcrops.each do |outcrop| %>
+    <%= link_to outcrop.location, outcrop_path(outcrop) %><br>
+    <%= outcrop.description %>
+    <br><br>
+<% end %>
+<br>
+
+<h2>All Outcrops:</h2>
+<% @outcrops.each do |outcrop| %>
+    <%= link_to outcrop.location, outcrop_path(outcrop) %><br>
+    <%= outcrop.description %>
+    <br><br>
+<% end %>
