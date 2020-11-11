@@ -1,0 +1,28 @@
+<h3>Welcome <%= @user.username %></h3>
+
+<h5>Current Projects:</h5>
+<div>
+    <% @projects.each do |p| %>
+        <p><%= link_to p.name, project_path(p) %></p>
+        <li><%= p.description %></li>
+        <br>
+    <% end %>
+    
+    <%= link_to "Start a New Project", new_project_path %>
+    <br>
+    <%= link_to "View All Projects", projects_path %>
+</div>
+
+<h5>Outcrops:</h5>
+<div>
+    <% @outcrops.each do |o| %>
+        <p><%= link_to o.location, outcrop_path(o) %></p>
+        <li><%= o.description %></li>
+        <br>
+    <% end %>
+
+    <%= link_to "Log a New Outcrop", new_outcrop_path %>
+    <br>
+    <%= link_to "View All Outcrops", outcrops_path %>
+</div>
+

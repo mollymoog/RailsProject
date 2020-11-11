@@ -5,14 +5,22 @@ class ProjectsController < ApplicationController
     end
 
     def show
+        binding.pry
         @project = Project.find_by_id(params[:id])
+        
+        # @project_outcrops = 
     end
 
     def new
-        @project = Project.new(project_params)
+        @outcrops = Outcrop.all
+        @project = Project.new
+
     end
 
     def create
+        binding.pry
+        @outcrops = Outcrop.all
+
         @project = Project.new(project_params)
 
         if @project.save
@@ -21,6 +29,11 @@ class ProjectsController < ApplicationController
             render 'new'
         end
     end
+
+    def edit 
+        @project = Project.find_by_id(params[:id])
+    end
+
 
 
 

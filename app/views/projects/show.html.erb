@@ -1,0 +1,21 @@
+
+
+<h3><%= @project.name %></h3>
+    <p><%= @project.description %></p>
+
+    
+<div>
+    <h4>Outcrops:</h4>
+
+    <% @project.outcrops.each do |outcrop| %>
+        <h5><%= link_to outcrop.location, project_outcrop_path(outcrop) %></h5>
+        <p><%= outcrop.description %></p>
+    <% end %>
+</div>
+
+<div>
+    <h4>Project Contributors:</h4>
+    <% @project.users.each do |user| %>
+        <li><%= user.username %></li>
+    <% end %>
+</div>

@@ -5,7 +5,7 @@
     <li><%= @outcrop.latitude %> degrees Latitude</li>
     <li><%= @outcrop.longitude %> degrees Longitude</li>
     <li>Entered by <%= @outcrop_user.username %></li>
-    <% if @outcrop.project.name %>
+    <% if @outcrop.project %>
         <li>Used on the <%= @outcrop_project.name %> project</li>
     <% end %>
     <% if @outcrop_user == current_user %>
