@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => {registrations: 'registrations', :omniauth_callbacks => "omniauth_callbacks"}
   resources :users, only: [:show]
-  resources :outcrops, only: [:index, :show, :new, :create, :edit, :update]
-  resources :projects, only: [:index, :show, :new, :create, :edit, :update] do
+  resources :outcrops, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :projects, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :outcrops, only: [:index, :show, :new, :create, :edit, :update]
   end
 

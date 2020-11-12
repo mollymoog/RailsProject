@@ -19,3 +19,9 @@
         <li><%= user.username %></li>
     <% end %>
 </div>
+
+<% if @contributor %>
+    <%= link_to "Edit Project", edit_project_path(@project) %>
+    <br>
+    <%= link_to "New Outcrop for Project", new_project_outcrop_path(@project) %>
+<% end %>

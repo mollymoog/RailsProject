@@ -1,3 +1,8 @@
+<% @outcrop.errors.full_messages.each do |m| %>
+    <li><%= m %></li>
+<% end %>
+
 <h3>Edit Outcrop</h3>
 
 <%= render partial: 'form' %>
+<%= link_to "Delete", outcrop_path(@outcrop), method: :delete, data: {confirm: "Are you sure?"} %>

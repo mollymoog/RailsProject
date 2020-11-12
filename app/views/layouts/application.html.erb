@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+  <% flash.each do |type, msg| %>
+    <div>
+      <p>***<%= msg %>***</p>
+     </div>
+  <% end %>
   <head>
     <title>RailsProject</title>
     <%= csrf_meta_tags %>
@@ -12,4 +17,14 @@
   <body>
     <%= yield %>
   </body>
+  
+  <% if signed_in? %>
+    <footer>
+      <%= link_to "Projects", projects_path %>
+      <%= link_to "New Project", new_project_path %>
+      <%= link_to "Outcrops", outcrops_path %>
+      <%= link_to "New Outcrop", new_outcrop_path %>
+      <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+    </footer>
+  <% end %>
 </html>

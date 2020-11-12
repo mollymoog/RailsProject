@@ -1,0 +1,15 @@
+<%= form_for @project do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :description %>
+    <%= f.text_area :description %><br>
+
+    <%= f.label :outcrop %>
+    <%= f.select "outcrops", options_for_select(@outcrops.collect{ |o| o.location }) %>
+
+    
+    <br>
+    <%= f.submit %>
+
+<% end %>

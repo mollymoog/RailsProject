@@ -1,3 +1,8 @@
+<% @outcrop.errors.full_messages.each do |m| %>
+    <li><%= m %></li>
+<% end %>
+
 <h3>Log a New Outcrop</h3>
 
 <%= render partial: 'form' %>
+

@@ -1,0 +1,5 @@
+<h3>Edit Project: <%= @project.name %></h3>
+
+<%= render partial: 'form' %>
+
+<%= link_to "Delete", project_path(@project), method: :delete, data: {confirm: "Are you sure?"} %>
