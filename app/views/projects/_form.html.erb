@@ -6,10 +6,11 @@
     <%= f.text_area :description %><br>
 
     <%= f.label :outcrop %>
-    <%= f.select "outcrops", options_for_select(@outcrops.collect{ |o| o.location }) %>
-
-    
+    <%= f.collection_select :outcrop_ids, Outcrop.all, :id, :location, {include_blank: true}  %>
     <br>
+
+
+        <br>
     <%= f.submit %>
 
 <% end %>
