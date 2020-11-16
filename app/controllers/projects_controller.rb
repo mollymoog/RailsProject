@@ -28,7 +28,7 @@ class ProjectsController < ApplicationController
     def create
 
         # @outcrops = Outcrop.all
-        binding.pry
+
         # @outcrop = Outcrop.find_by(location: project_params["outcrops"])
 
 
