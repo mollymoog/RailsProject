@@ -1,4 +1,5 @@
 class OutcropsController < ApplicationController
+    before_action :signed_in_redirect, only: [:index, :show]
 
     def index
         signed_in_redirect

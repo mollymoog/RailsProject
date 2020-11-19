@@ -6,7 +6,10 @@ class ProjectsController < ApplicationController
         @projects = Project.all.alpha
         @most_users = Project.project_users
         @user_project = Project.find_by_id(@most_users.ids.first)
-        # binding.pry
+        if params[:search_name]
+            @search_results = Project.all.name_search(params[:search_name])
+        end
+
     end
 
     def show
@@ -19,27 +22,17 @@ class ProjectsController < ApplicationController
 
     def new
         signed_in_redirect
-
-        # @outcrops = Outcrop.all
         @project = Project.new
 
     end
 
     def create
-
-        # @outcrops = Outcrop.all
-
-        # @outcrop = Outcrop.find_by(location: project_params["outcrops"])
-
-
         @project = Project.new(project_params)
 
-# if select outcrop from dropdown, @project.outcrops << outcrop
-#undefined method `each' for "Log Lady's Cabin":String [ error when saving prj and redirect to show ]
         if @project.save
-            redirect_to project_path(@project)
+            redirect_to project_path(@project), notice: "Project Created"
         else
-            render 'new'
+            render 'new', notice: "Project wasn't saved"
         end
     end
 
@@ -74,7 +67,7 @@ class ProjectsController < ApplicationController
 
     private
     def project_params
-        params.require(:project).permit(:name, :description, :user_id, :outcrop_ids, outcrops_attributes: [:location, :description, :latitude, :longitude])
+        params.require(:project).permit(:name, :description, :project_search, :user_ids, :outcrop_ids, outcrops_attributes: [:location, :description, :latitude, :longitude])
     end
 
     def not_contributor_redirect

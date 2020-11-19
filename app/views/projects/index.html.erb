@@ -1,9 +1,36 @@
-<h3>All Projects</h5
+<%= form_tag('/projects', :method => 'get') do %>
+    <%= search_field_tag('search_name') %>
+    <%= submit_tag('search') %> 
+<% end %>
 
-<h5>Project with most Contributors: <%= link_to @user_project.name, project_path(@user_project) %></h5>
+<% if @search_results %>
+    <h3> Search Results</h3>
+    <% @search_results.each do |project| %>
+        <h4><%= link_to project.name, project_path(project) %></h4>
+        <p><%= project.description %></p>
+        <br><br>
+    <% end %>
 
-<% @projects.each do |project| %>
-    <h4><%= link_to project.name, project_path(project) %></h4>
-    <p><%= project.description %></p>
-    <br><br>
+    <h3>All Projects</h5
+
+    <h5>Project with most Contributors: <%= link_to @user_project.name, project_path(@user_project) %></h5>
+
+    <% @projects.each do |project| %>
+        <h4><%= link_to project.name, project_path(project) %></h4>
+        <p><%= project.description %></p>
+        <br><br>
+    <% end %>
+
+<% else %>
+
+    <h3>All Projects</h5
+
+    <h5>Project with most Contributors: <%= link_to @user_project.name, project_path(@user_project) %></h5>
+
+    <% @projects.each do |project| %>
+        <h4><%= link_to project.name, project_path(project) %></h4>
+        <p><%= project.description %></p>
+        <br><br>
+    <% end %>
+
 <% end %>
