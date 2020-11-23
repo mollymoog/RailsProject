@@ -12,6 +12,23 @@ class ProjectsController < ApplicationController
 
     end
 
+    # dwayne's refactor:
+    # def index
+    #     signed_in_redirect
+        
+    #     if params[:search_name]
+    #         @projects = Project.all.name_search(params[:search_name])
+    #         @most_users = Project.project_users
+    #         @user_project = Project.find_by_id(@most_users.ids.first)
+    #     else
+    #         @projects = Project.all.alpha
+    #         @most_users = Project.project_users
+    #         @user_project = Project.find_by_id(@most_users.ids.first)
+    #     end
+
+    # end
+
+
     def show
 
         signed_in_redirect
